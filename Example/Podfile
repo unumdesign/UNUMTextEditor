@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UNUMTextEditor_Example' do
+  pod 'UNUMTextEditor', :path => '../'
+
+  target 'UNUMTextEditor_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
