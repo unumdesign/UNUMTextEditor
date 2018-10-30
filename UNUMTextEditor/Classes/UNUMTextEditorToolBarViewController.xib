@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Karla-Regular.ttf">
+            <string>Karla-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UNUMTextEditorToolBarViewController" customModule="UNUMTextEditor" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="s2b-Nb-oQO" id="x2j-pW-5oA"/>
+                <outlet property="infoButton" destination="hKf-8v-sIC" id="W61-fG-1DW"/>
+                <outlet property="pickerView" destination="R9C-31-2Vj" id="Opj-fu-nbE"/>
+                <outlet property="saveButton" destination="u28-R2-G0c" id="egL-Cr-2s5"/>
+                <outlet property="toolBarContainer" destination="ihV-U6-rWZ" id="aKR-MW-RoY"/>
+                <outlet property="toolTitle" destination="J8F-y0-foV" id="RRT-hi-qrO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMi-wR-F8j" customClass="TextEditorToolBar" customModule="UNUMTextEditor" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8F-y0-foV">
+                            <rect key="frame" x="10" y="0.0" width="39" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="5LX-g3-CbL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u28-R2-G0c">
+                            <rect key="frame" x="324" y="164" width="45" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="XiC-M8-QiN"/>
+                                <constraint firstAttribute="width" constant="45" id="dbU-Ml-Iid"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" backgroundImage="saveBlack">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="saveOnClick:" destination="-1" eventType="touchUpInside" id="Dx1-Vw-jEe"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2b-Nb-oQO">
+                            <rect key="frame" x="6" y="164" width="45" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="B3Y-u5-QFZ"/>
+                                <constraint firstAttribute="width" constant="45" id="Dhq-xO-yZ2"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" backgroundImage="cancelBlack">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelOnClick:" destination="-1" eventType="touchUpInside" id="wvG-Pj-ZUN"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihV-U6-rWZ">
+                            <rect key="frame" x="0.0" y="42" width="375" height="122"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-8v-sIC">
+                            <rect key="frame" x="318" y="0.0" width="42" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="hKf-8v-sIC" secondAttribute="height" id="29L-Ef-xLT"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="imageEdgeInsets" minX="14" minY="14" maxX="14" maxY="14"/>
+                            <state key="normal" backgroundImage="at_sign"/>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9C-31-2Vj" customClass="HorizontalPickerView" customModule="UNUMTextEditor" customModuleProvider="target">
+                            <rect key="frame" x="51" y="164" width="273" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="s2b-Nb-oQO" firstAttribute="leading" secondItem="FeV-zQ-rQA" secondAttribute="leading" constant="6" id="3Da-3m-Gx9"/>
+                        <constraint firstItem="FeV-zQ-rQA" firstAttribute="trailing" secondItem="hKf-8v-sIC" secondAttribute="trailing" constant="15" id="5mC-aK-y4C"/>
+                        <constraint firstItem="R9C-31-2Vj" firstAttribute="top" secondItem="ihV-U6-rWZ" secondAttribute="bottom" id="BcZ-c1-7ww"/>
+                        <constraint firstItem="J8F-y0-foV" firstAttribute="leading" secondItem="FeV-zQ-rQA" secondAttribute="leading" constant="10" id="Hj9-aR-FsC"/>
+                        <constraint firstItem="FeV-zQ-rQA" firstAttribute="trailing" secondItem="u28-R2-G0c" secondAttribute="trailing" constant="6" id="MoR-av-Jog"/>
+                        <constraint firstItem="ihV-U6-rWZ" firstAttribute="leading" secondItem="FeV-zQ-rQA" secondAttribute="leading" id="Qoq-8n-ra9"/>
+                        <constraint firstItem="J8F-y0-foV" firstAttribute="top" secondItem="FeV-zQ-rQA" secondAttribute="top" id="Seg-Zj-dv8"/>
+                        <constraint firstItem="s2b-Nb-oQO" firstAttribute="bottom" secondItem="FeV-zQ-rQA" secondAttribute="bottom" id="ThP-kj-q2s"/>
+                        <constraint firstItem="FeV-zQ-rQA" firstAttribute="trailing" secondItem="ihV-U6-rWZ" secondAttribute="trailing" id="brl-hL-AEC"/>
+                        <constraint firstItem="hKf-8v-sIC" firstAttribute="top" secondItem="UMi-wR-F8j" secondAttribute="top" id="fqn-Bc-Woi"/>
+                        <constraint firstItem="ihV-U6-rWZ" firstAttribute="top" secondItem="hKf-8v-sIC" secondAttribute="bottom" id="iyd-9F-7gC"/>
+                        <constraint firstItem="u28-R2-G0c" firstAttribute="bottom" secondItem="FeV-zQ-rQA" secondAttribute="bottom" id="kvv-aI-nWi"/>
+                        <constraint firstItem="ihV-U6-rWZ" firstAttribute="top" secondItem="J8F-y0-foV" secondAttribute="bottom" id="loQ-Nq-pMq"/>
+                        <constraint firstItem="s2b-Nb-oQO" firstAttribute="top" secondItem="ihV-U6-rWZ" secondAttribute="bottom" id="ozM-rd-66h"/>
+                        <constraint firstItem="FeV-zQ-rQA" firstAttribute="bottom" secondItem="R9C-31-2Vj" secondAttribute="bottom" id="ssy-6d-tCt"/>
+                        <constraint firstItem="R9C-31-2Vj" firstAttribute="leading" secondItem="s2b-Nb-oQO" secondAttribute="trailing" id="sz3-Ch-Oa1"/>
+                        <constraint firstItem="u28-R2-G0c" firstAttribute="leading" secondItem="R9C-31-2Vj" secondAttribute="trailing" id="ut8-Ld-XjD"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="FeV-zQ-rQA"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UMi-wR-F8j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fp8-J3-ec2"/>
+                <constraint firstItem="UMi-wR-F8j" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gcA-GL-04L"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UMi-wR-F8j" secondAttribute="trailing" id="tRx-1S-gbD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UMi-wR-F8j" secondAttribute="bottom" id="x3c-TC-YTC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140" y="360.2698650674663"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="at_sign" width="20" height="20"/>
+        <image name="cancelBlack" width="47" height="47"/>
+        <image name="saveBlack" width="49" height="45"/>
+    </resources>
+</document>

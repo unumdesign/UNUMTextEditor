@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorEditorCollectionViewCell" id="gTV-IL-0wX" customClass="ColorEditorCollectionViewCell" customModule="UNUM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="do8-xZ-6e2">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfM-fl-RTk">
+                        <rect key="frame" x="3" y="3" width="95" height="87"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cfM-fl-RTk" secondAttribute="bottom" constant="3" id="2KO-l2-pxy"/>
+                <constraint firstAttribute="bottom" secondItem="do8-xZ-6e2" secondAttribute="bottom" id="ERM-vf-7nq"/>
+                <constraint firstItem="do8-xZ-6e2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FBH-jJ-La9"/>
+                <constraint firstAttribute="trailing" secondItem="do8-xZ-6e2" secondAttribute="trailing" id="IQV-pE-JHp"/>
+                <constraint firstItem="cfM-fl-RTk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="Wro-jS-7At"/>
+                <constraint firstItem="do8-xZ-6e2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fgF-zM-eyB"/>
+                <constraint firstAttribute="trailing" secondItem="cfM-fl-RTk" secondAttribute="trailing" constant="3" id="gGM-GT-dQs"/>
+                <constraint firstItem="cfM-fl-RTk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="uK2-Xk-Vgv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="101" height="93"/>
+            <connections>
+                <outlet property="borderView" destination="do8-xZ-6e2" id="tqF-ef-ITh"/>
+                <outlet property="fillView" destination="cfM-fl-RTk" id="bEz-QK-U1I"/>
+            </connections>
+            <point key="canvasLocation" x="-69" y="41"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Karla-Regular.ttf">
+            <string>Karla-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EditFontAlignmentToolBar" customModule="UNUM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="403" height="134"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vky-bO-fIl">
+                    <rect key="frame" x="15" y="45" width="93.5" height="45"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="ZeH-Bz-KLh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="10"/>
+                    <inset key="imageEdgeInsets" minX="6" minY="0.0" maxX="6" maxY="24"/>
+                    <state key="normal" image="leftAlignedIcon"/>
+                    <connections>
+                        <action selector="leftAlignmentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="cQE-Sy-fEm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8y-ac-Teb">
+                    <rect key="frame" x="108.5" y="44.5" width="93" height="45"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="T1P-Ar-5SB"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="24"/>
+                    <state key="normal" image="centerAlignedIcon"/>
+                    <connections>
+                        <action selector="centerAlignmentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vh6-vK-BsV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fJ-ux-a2I">
+                    <rect key="frame" x="201.5" y="45" width="93.5" height="45"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="rXM-Ra-YLW"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="24"/>
+                    <state key="normal" image="rightAlignedIcon"/>
+                    <connections>
+                        <action selector="rightAlignmentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="zjT-Hb-bNZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rve-4O-ykU">
+                    <rect key="frame" x="295" y="45" width="93" height="45"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="5vN-Cd-gUB"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="24"/>
+                    <state key="normal" image="justifiedIcon"/>
+                    <connections>
+                        <action selector="justifiedAlignmentAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="goM-fw-Bzy"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK3-3G-QuI">
+                    <rect key="frame" x="41" y="78" width="42" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="XHY-Ei-8Wi"/>
+                        <constraint firstAttribute="width" constant="42" id="mlH-pz-GWO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pz-ue-fUI">
+                    <rect key="frame" x="140.5" y="77.5" width="30.5" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="Sd0-7N-F8c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daH-zd-ywr">
+                    <rect key="frame" x="236" y="78" width="25" height="12"/>
+                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Justified " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGE-No-2HI">
+                    <rect key="frame" x="320.5" y="78" width="42" height="12"/>
+                    <fontDescription key="fontDescription" name="Karla-Regular" family="Karla" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rve-4O-ykU" firstAttribute="width" secondItem="vky-bO-fIl" secondAttribute="width" id="18S-SK-rzn"/>
+                <constraint firstItem="vky-bO-fIl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1zD-vW-Pbc"/>
+                <constraint firstItem="rK3-3G-QuI" firstAttribute="centerX" secondItem="vky-bO-fIl" secondAttribute="centerX" id="3KF-lO-LCM"/>
+                <constraint firstItem="7fJ-ux-a2I" firstAttribute="leading" secondItem="S8y-ac-Teb" secondAttribute="trailing" id="55C-a1-hMk"/>
+                <constraint firstItem="rK3-3G-QuI" firstAttribute="top" secondItem="vky-bO-fIl" secondAttribute="bottom" constant="-12" id="7Rg-8h-tJW"/>
+                <constraint firstItem="rve-4O-ykU" firstAttribute="centerY" secondItem="vky-bO-fIl" secondAttribute="centerY" id="7Wu-0Z-qOy"/>
+                <constraint firstItem="7fJ-ux-a2I" firstAttribute="centerY" secondItem="vky-bO-fIl" secondAttribute="centerY" id="9NC-Rg-INm"/>
+                <constraint firstItem="S8y-ac-Teb" firstAttribute="centerY" secondItem="vky-bO-fIl" secondAttribute="centerY" id="ALG-w4-lan"/>
+                <constraint firstItem="rve-4O-ykU" firstAttribute="leading" secondItem="7fJ-ux-a2I" secondAttribute="trailing" id="HK6-dq-8f6"/>
+                <constraint firstItem="PGE-No-2HI" firstAttribute="top" secondItem="rve-4O-ykU" secondAttribute="bottom" constant="-12" id="Ovq-ve-ftV"/>
+                <constraint firstItem="daH-zd-ywr" firstAttribute="top" secondItem="7fJ-ux-a2I" secondAttribute="bottom" constant="-12" id="Q1O-CV-h1f"/>
+                <constraint firstItem="daH-zd-ywr" firstAttribute="centerX" secondItem="7fJ-ux-a2I" secondAttribute="centerX" id="XFw-oO-ocg"/>
+                <constraint firstItem="S8y-ac-Teb" firstAttribute="leading" secondItem="vky-bO-fIl" secondAttribute="trailing" id="a2s-Hc-qEv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rve-4O-ykU" secondAttribute="trailing" constant="15" id="auO-Ma-Bqv"/>
+                <constraint firstItem="9pz-ue-fUI" firstAttribute="centerX" secondItem="S8y-ac-Teb" secondAttribute="centerX" id="hfh-p9-VzV"/>
+                <constraint firstItem="9pz-ue-fUI" firstAttribute="top" secondItem="S8y-ac-Teb" secondAttribute="bottom" constant="-12" id="pTy-pG-TAh"/>
+                <constraint firstItem="S8y-ac-Teb" firstAttribute="width" secondItem="vky-bO-fIl" secondAttribute="width" id="pwa-io-UTV"/>
+                <constraint firstItem="PGE-No-2HI" firstAttribute="centerX" secondItem="rve-4O-ykU" secondAttribute="centerX" id="yLu-co-dZI"/>
+                <constraint firstItem="vky-bO-fIl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="ybE-zi-YMw"/>
+                <constraint firstItem="7fJ-ux-a2I" firstAttribute="width" secondItem="vky-bO-fIl" secondAttribute="width" id="ywf-M2-VQS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="31" y="346"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="centerAlignedIcon" width="28" height="22"/>
+        <image name="justifiedIcon" width="26" height="21"/>
+        <image name="leftAlignedIcon" width="26" height="22"/>
+        <image name="rightAlignedIcon" width="26" height="21"/>
+    </resources>
+</document>

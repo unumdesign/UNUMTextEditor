@@ -1,0 +1,16 @@
+PODS:
+  - UNUMTextEditor (1.0.0)
+
+DEPENDENCIES:
+  - UNUMTextEditor (from `../`)
+
+EXTERNAL SOURCES:
+  UNUMTextEditor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UNUMTextEditor: 9104988880a8e851d2bdf667b11a221586617845
+
+PODFILE CHECKSUM: 7fd45d55b5894616becce7e9f4660c807673aec4
+
+COCOAPODS: 1.5.3
