@@ -17,8 +17,8 @@ public enum UNUMTextEditorToolType: Int {
     case Close
 }
 
-public protocol UNUMTextEditorDelegaet: class {
-    func didChangeTextAttribute(_ attributeData: UNUMAttributeStringStruct)
+public protocol UNUMTextEditorDelegate: class {
+    func didChangeTextAttribute(_ attributeData: UNUMAttributeStringStruct, attributeString: NSAttributedString)
     func didSave()
     func didCancel()
 }
@@ -36,9 +36,10 @@ public class UNUMTextEditorToolBarViewController: UIViewController {
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var pickerView: HorizontalPickerView!
+    @IBOutlet var containerHeight: NSLayoutConstraint!
 
     var toolBarModel: UNUMTextEditorToolType!
-    public weak var delegate: UNUMTextEditorDelegaet?
+    public weak var delegate: UNUMTextEditorDelegate?
     var viewModel: UNUMTextEditorViewModel!
 
     let bundle: Bundle = {
@@ -49,10 +50,10 @@ public class UNUMTextEditorToolBarViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    public convenience init(attributeString: UNUMAttributeStringStruct, toolType: UNUMTextEditorToolType) {
+    public convenience init(attributeString: UNUMAttributeStringStruct) {
         let bundle = Bundle(for: UNUMTextEditorToolBarViewController.self)
         self.init(nibName: "UNUMTextEditorToolBarViewController", bundle: bundle)
-        self.viewModel = UNUMTextEditorViewModel(attributeStringData: attributeString, toolType: toolType)
+        self.viewModel = UNUMTextEditorViewModel(attributeStringData: attributeString)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -64,19 +65,76 @@ public class UNUMTextEditorToolBarViewController: UIViewController {
         setupToolBar()
     }
 
-    public func resetToolBar(attributeStringData: UNUMAttributeStringStruct, toolType: UNUMTextEditorToolType) {
+
+    public func setupTextEditorConstraints() {
+        guard let parentVC = self.parent else {
+            return
+        }
+        self.view.isHidden = true
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.view.leadingAnchor.constraint(equalTo: parentVC.view.leadingAnchor, constant: 0),
+            self.view.heightAnchor.constraint(equalToConstant: 181),
+            self.view.trailingAnchor.constraint(equalTo: parentVC.view.trailingAnchor, constant: 0),
+            self.view.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor, constant: 0)]
+        )
+    }
+
+    public func reset(attributeStringData: UNUMAttributeStringStruct) {
         self.viewModel.attributeStringData = attributeStringData
-        self.viewModel.toolType = toolType
-        setupToolBar()
+    }
+
+    //set tool bar above ket board
+    public func keyboardToolBar() -> UIView {
+        let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 45))
+
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+
+        let fontButton = UIBarButtonItem(image: UIImage(named: "font-icon-small"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        fontButton.tag = 1
+        fontButton.tintColor = .black
+        let sizeButton = UIBarButtonItem(image: UIImage(named: "size-icon"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        sizeButton.tag = 2
+        sizeButton.tintColor = .black
+        let alignmentButton = UIBarButtonItem(image: UIImage(named: "textAlignment"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        alignmentButton.tag = 3
+        alignmentButton.tintColor = .black
+        let letterSpacingButton = UIBarButtonItem(image: UIImage(named: "letterSpacing"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        letterSpacingButton.tag = 4
+        letterSpacingButton.tintColor = .black
+        let lineSpaceingButton = UIBarButtonItem(image: UIImage(named: "lineSpacing"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        lineSpaceingButton.tag = 5
+        lineSpaceingButton.tintColor = .black
+        let colorButton = UIBarButtonItem(image: UIImage(named: "color"), style: .plain, target: self, action: #selector(editTextAction(_:)))
+        colorButton.tag = 6
+        colorButton.tintColor = .black
+        bar.items = [fontButton, flexibleSpace, sizeButton, flexibleSpace, alignmentButton, flexibleSpace, letterSpacingButton, flexibleSpace, lineSpaceingButton, flexibleSpace, colorButton]
+        return bar
+    }
+
+    //add text edtior view
+    @objc func editTextAction(_ sender: UIBarButtonItem) {
+        if let toolType = UNUMTextEditorToolType(rawValue: sender.tag) {
+        self.view.isHidden = false
+        self.parent?.view.endEditing(true)
+        //set container height according to toolbar type
+            containerHeight.constant = viewModel.getToolBarHeight(toolbarType: toolType)
+            viewModel.toolType = toolType
+            setupToolBar()
+        }
     }
 
     private func setupToolBar() {
+
+        guard let toolType = viewModel.toolType else {
+            return
+        }
 
         for view in self.toolBarContainer.subviews {
             view.removeFromSuperview()
         }
 
-        switch viewModel.toolType {
+        switch toolType {
 
         case .EditFont:
             setupEditFontView()
@@ -185,18 +243,49 @@ public class UNUMTextEditorToolBarViewController: UIViewController {
             fontSizeToolBar.delegate = self
         }
     }
+
     @IBAction func cancelOnClick(_ sender: Any) {
+        self.view.isHidden = true
         delegate?.didCancel()
     }
 
     @IBAction func saveOnClick(_ sender: Any) {
+        self.view.isHidden = true
         delegate?.didSave()
+    }
+
+    func getTextElement(index: Int) -> NSTextAlignment {
+        switch index {
+        case 0: return .left
+        case 1: return .center
+        case 2: return .right
+        case 3: return .natural
+        default: return .left
+        }
+    }
+
+    //build string
+    func buildAttributeString(_ attributes: UNUMAttributeStringStruct) -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: viewModel.attributeStringData.text)
+        let range = NSRange(location: 0, length: viewModel.attributeStringData.text.count)
+        let font = UIFont(name: attributes.fontName, size: CGFloat(attributes.fontSize))
+        attributeString.addAttribute(.font, value: font as Any, range: range)
+        attributeString.addAttribute(.kern, value: attributes.letterSpacing, range: range)
+        // add line spacing attribute
+        let lineSpacing = attributes.lineSpacing
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = CGFloat(lineSpacing)
+        paragraphStyle.alignment = getTextElement(index: attributes.alignment)
+        attributeString.addAttribute(.paragraphStyle, value: paragraphStyle, range: range)
+        attributeString.addAttribute(.foregroundColor, value: UIColor(rgb: attributes.fontColor), range: range)
+        return attributeString
     }
 }
 
 extension UNUMTextEditorToolBarViewController: UNUMToolBarDelegaet {
     func didChangeTextAttribute(_ attributeData: UNUMAttributeStringStruct) {
         viewModel.attributeStringData = attributeData
-        delegate?.didChangeTextAttribute(attributeData)
+        let attrString = buildAttributeString(attributeData)
+        delegate?.didChangeTextAttribute(attributeData, attributeString: attrString)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 public struct UNUMAttributeStringStruct {
-    public var text: String = ""
+    public var text: String = "Test String"
     public var fontName: String = "Helvetica"
     public var fontSize: Float = 12
     public var letterSpacing: Float = 1
