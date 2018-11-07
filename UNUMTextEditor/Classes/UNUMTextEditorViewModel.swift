@@ -9,12 +9,23 @@ import Foundation
 
 class UNUMTextEditorViewModel {
 
-    var attributeStringData: UNUMAttributeStringStruct
-    var toolType: UNUMTextEditorToolType
+    var attributedString: NSMutableAttributedString
+    var toolType: UNUMTextEditorToolType?
 
 
-    init(attributeStringData: UNUMAttributeStringStruct, toolType: UNUMTextEditorToolType) {
-        self.attributeStringData = attributeStringData
-        self.toolType = toolType
+    init(attributedString: NSMutableAttributedString) {
+        self.attributedString = attributedString
+    }
+
+    func getToolBarHeight(toolbarType: UNUMTextEditorToolType) -> CGFloat {
+        switch toolbarType {
+        case .EditFont: return 181
+        case .EditSize: return 144
+        case .EditAlignment: return 163
+        case .EditLetterSpacing: return 144
+        case .EditLineSpacing: return 144
+        case .EditColor: return 157
+        case .Close: return 0
+        }
     }
 }
