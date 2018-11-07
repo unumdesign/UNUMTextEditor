@@ -14,7 +14,7 @@ class EditFontToolBar: UIView {
     @IBOutlet var styleToolView: HorizontalPickerView!
 
     weak var delegate: UNUMToolBarDelegaet?
-    var attributeStringData: UNUMAttributeStringStruct!
+    var attributedString: NSMutableAttributedString!
     var fontData = [String]()
     var fontSizeArray = [CGFloat]()
 
@@ -104,19 +104,17 @@ extension EditFontToolBar: HorizontalPickerViewDelegate {
             selectedFont = fontData[item]
             guard let selected = selectedFont,
                 let stylename = styleData[selected]?.first else {
-                    attributeStringData.fontName = selectedFont ?? attributeStringData.fontName
-                    delegate?.didChangeTextAttribute(attributeStringData)
+                attributedString.setFont(newFontNanme: selectedFont, newSize: nil)
                 return
             }
-            attributeStringData.fontName = stylename
-            delegate?.didChangeTextAttribute(attributeStringData)
+            attributedString.setFont(newFontNanme: stylename, newSize: nil)
+            delegate?.didChangeTextAttribute(attributedString)
         } else if pickerView.tag == 2 {
             guard let selected = selectedFont, let styleArray = styleData[selected] else {
                 return
             }
-
-            attributeStringData.fontName = styleArray[item]
-            delegate?.didChangeTextAttribute(attributeStringData)
+            attributedString.setFont(newFontNanme: styleArray[item], newSize: nil)
+            delegate?.didChangeTextAttribute(attributedString)
             seletedStyle = item
         }
     }

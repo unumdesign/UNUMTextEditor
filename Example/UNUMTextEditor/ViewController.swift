@@ -12,8 +12,6 @@ import UNUMTextEditor
 class ViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
-    var textData: UNUMAttributeStringStruct?
-
     @IBOutlet var container: UIView!
 
     @IBOutlet var containerHeight: NSLayoutConstraint!
@@ -22,35 +20,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyBoardToolbar()
+        textView.delegate = self
         textView.becomeFirstResponder()
     }
 
     func setupKeyBoardToolbar() {
-        if textData == nil {
-            textData = UNUMAttributeStringStruct()
-        }
-
-        if textEditorToolbarViewController == nil {
-            textEditorToolbarViewController = UNUMTextEditorToolBarViewController(attributeString: textData!)
-            textEditorToolbarViewController?.delegate = self
-            textView.inputAccessoryView = textEditorToolbarViewController?.keyboardToolBar()
-            // Add to view.
-            willMove(toParent: textEditorToolbarViewController)
-            self.view.addSubview(textEditorToolbarViewController!.view)
-            addChild(textEditorToolbarViewController!)
-            didMove(toParent: textEditorToolbarViewController!)
-            textEditorToolbarViewController?.setupTextEditorConstraints()
-        } else {
-            textEditorToolbarViewController?.reset(attributeStringData: textData!)
-        }
+        let atttibutedSting = NSMutableAttributedString(attributedString: textView.attributedText)
+        textEditorToolbarViewController = UNUMTextEditorToolBarViewController(attributedString: atttibutedSting)
+        textEditorToolbarViewController?.delegate = self
+        textView.inputAccessoryView = textEditorToolbarViewController?.keyboardToolBar()
+        // Add to view.
+        willMove(toParent: textEditorToolbarViewController)
+        self.view.addSubview(textEditorToolbarViewController!.view)
+        addChild(textEditorToolbarViewController!)
+        didMove(toParent: textEditorToolbarViewController!)
+        textEditorToolbarViewController?.setupTextEditorConstraints()
     }
+}
 
+extension ViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let atttibutedSting = NSMutableAttributedString(attributedString: textView.attributedText)
+        textEditorToolbarViewController?.reset(attributedString: atttibutedSting)
+    }
 }
 
 extension ViewController: UNUMTextEditorDelegate {
-    func didChangeTextAttribute(_ attributeData: UNUMAttributeStringStruct, attributeString: NSAttributedString) {
-        textData = attributeData
-        self.textView.attributedText = attributeString
+    func didChangeTextAttribute(attributedString: NSMutableAttributedString) {
+        self.textView.attributedText = attributedString
+        self.textView.reloadInputViews()
     }
 
     func didSave() {
@@ -60,6 +58,5 @@ extension ViewController: UNUMTextEditorDelegate {
     func didCancel() {
         textView.becomeFirstResponder()
     }
-
 }
 

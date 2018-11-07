@@ -12,7 +12,7 @@ class EditColorToolBar: UIView {
 
     @IBOutlet var collectionView: UICollectionView!
     weak var delegate: UNUMToolBarDelegaet?
-    var attributeStringData: UNUMAttributeStringStruct!
+    var attributedString: NSMutableAttributedString!
 
     let colorData = [0xFC2F00, 0xF7AB59, 0xFEEA00, 0x008040, 0x005D2F, 0x2424E4, 0x000000, 0xFFFFFF,
                      0xE5A397, 0x5D7469, 0x000554, 0x051C3A, 0x4a4a4a, 0xCEBDA5, 0xFDDAE1, 0xFE0000,
@@ -39,9 +39,9 @@ class EditColorToolBar: UIView {
 
 extension EditColorToolBar: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        attributeStringData?.fontColor = colorData[indexPath.row]
+        attributedString.setForegroundColor(color: UIColor(rgb: colorData[indexPath.row]))
         collectionView.reloadData()
-        delegate?.didChangeTextAttribute(attributeStringData)
+        delegate?.didChangeTextAttribute(attributedString)
     }
 }
 
@@ -53,9 +53,9 @@ extension EditColorToolBar: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorEditorCollectionViewCell", for: indexPath) as! ColorEditorCollectionViewCell
-        let selected = attributeStringData.fontColor
+        let selected = attributedString.fontColor ?? .black
         
-        let sameColor = selected == colorData[indexPath.row]
+        let sameColor = selected == UIColor(rgb: colorData[indexPath.row])
         cell.setupColorButton(colorInt: colorData[indexPath.row], selected: sameColor)
         return cell
     }

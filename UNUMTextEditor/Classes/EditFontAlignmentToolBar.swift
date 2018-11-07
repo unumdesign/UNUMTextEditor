@@ -11,7 +11,7 @@ import UIKit
 
 class EditFontAlignmentToolBar: UIView {
 
-    var attributeStringData: UNUMAttributeStringStruct!
+    var attributedString: NSMutableAttributedString!
     var delegate: UNUMToolBarDelegaet?
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,22 +22,22 @@ class EditFontAlignmentToolBar: UIView {
     }
 
     @IBAction func leftAlignmentAction(_ sender: UIButton) {
-        attributeStringData.alignment = 0
-        delegate?.didChangeTextAttribute(attributeStringData)
+        attributedString.setTextAlignment(alignment: 0)
+        delegate?.didChangeTextAttribute(attributedString)
     }
 
     @IBAction func centerAlignmentAction(_ sender: UIButton) {
-        attributeStringData.alignment = 1
-        delegate?.didChangeTextAttribute(attributeStringData)
+        attributedString.setTextAlignment(alignment: 1)
+        delegate?.didChangeTextAttribute(attributedString)
     }
 
     @IBAction func rightAlignmentAction(_ sender: UIButton) {
-        attributeStringData.alignment = 2
-        delegate?.didChangeTextAttribute(attributeStringData)
+        attributedString.setTextAlignment(alignment: 2)
+        delegate?.didChangeTextAttribute(attributedString)
     }
 
     @IBAction func justifiedAlignmentAction(_ sender: UIButton) {
-        attributeStringData.alignment = 3
-        delegate?.didChangeTextAttribute(attributeStringData)
+       attributedString.setTextAlignment(alignment: 3)
+        delegate?.didChangeTextAttribute(attributedString)
     }
 }

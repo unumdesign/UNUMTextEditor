@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02A32F32E8E2EEA06CEC7AE1CE30B640 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17761D96D2E568D63D7DEAAC5B9B610A /* Media.xcassets */; };
-		04BBCC82927D09CDE72147A80FDB45FC /* NSAttributeStringStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0EFCC487D5093F428510A324FDFCA /* NSAttributeStringStruct.swift */; };
 		07BCF076537C4475445449078F3BCF5C /* EditFontToolBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = EC7906C77FD116035AFDA797095C11C4 /* EditFontToolBar.xib */; };
 		093EC9E375CFF1AE21686EE9A4CF7662 /* EditFontToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7906C77FD116035AFDA797095C11C4 /* EditFontToolBar.xib */; };
 		094E232BADEA7B21939589A1361459B5 /* ColorEditorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F1F7AD138A0AF41465E4C7C897C586C /* ColorEditorCollectionViewCell.xib */; };
@@ -37,6 +36,7 @@
 		C6969E28C27464A7E59A390D841B853A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		DC889ACAF7C7F1F2773FA49BA2F89715 /* Pods-UNUMTextEditor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E121914772158CC796042F24B8B582 /* Pods-UNUMTextEditor_Tests-dummy.m */; };
 		EFFC8FE07881D402E7186C5CE25E864C /* EditTextSliderToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B2676FD1C15B75125A89C7D11837A /* EditTextSliderToolBar.xib */; };
+		F1BEB4FC21938C3A00126B53 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BEB4FB21938C3A00126B53 /* NSAttributedString+Extension.swift */; };
 		F1EBAE232188DD83005CB2DF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17761D96D2E568D63D7DEAAC5B9B610A /* Media.xcassets */; };
 		F588EB4C452E10FF0ECA8D10D0C96DF2 /* UNUMTextEditor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C32AE75F58432A95DC33BACB79CF4F3C /* UNUMTextEditor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6C279AD06A4FEB6E1993D8D9623D031 /* EditTextSliderToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E506F7E695A34A6855E115502DA1A08 /* EditTextSliderToolBar.swift */; };
@@ -70,7 +70,6 @@
 /* Begin PBXFileReference section */
 		03B2AE3C51B7BA3D1D40D343F564DB4B /* UNUMTextEditor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UNUMTextEditor.xcconfig; sourceTree = "<group>"; };
 		04814DB3E6CFCE258448ED0174F5AF43 /* ColorEditorCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorEditorCollectionViewCell.swift; path = UNUMTextEditor/Classes/ColorEditorCollectionViewCell.swift; sourceTree = "<group>"; };
-		0EA0EFCC487D5093F428510A324FDFCA /* NSAttributeStringStruct.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSAttributeStringStruct.swift; path = UNUMTextEditor/Classes/NSAttributeStringStruct.swift; sourceTree = "<group>"; };
 		17761D96D2E568D63D7DEAAC5B9B610A /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		19FF5DB11526209ECE03FC5D3298A4E8 /* Pods-UNUMTextEditor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UNUMTextEditor_Example.modulemap"; sourceTree = "<group>"; };
 		1C6B2676FD1C15B75125A89C7D11837A /* EditTextSliderToolBar.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EditTextSliderToolBar.xib; path = UNUMTextEditor/Classes/EditTextSliderToolBar.xib; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		EC7906C77FD116035AFDA797095C11C4 /* EditFontToolBar.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = EditFontToolBar.xib; path = UNUMTextEditor/Classes/EditFontToolBar.xib; sourceTree = "<group>"; };
 		ED170F2DAE121B5B7791C7FBF1CCC6D3 /* UNUMTextEditorToolBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UNUMTextEditorToolBarViewController.swift; path = UNUMTextEditor/Classes/UNUMTextEditorToolBarViewController.swift; sourceTree = "<group>"; };
 		ED8A9249B06372CCF771A18231B3798D /* Pods-UNUMTextEditor_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UNUMTextEditor_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		F1BEB4FB21938C3A00126B53 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Extension.swift"; path = "UNUMTextEditor/Classes/NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		F9DBCC5829D12B261E387118139F1267 /* UNUMTextEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = UNUMTextEditor.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FD678FA7DC5C059DF4FBC043A070AD54 /* Pods-UNUMTextEditor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UNUMTextEditor_Tests.modulemap"; sourceTree = "<group>"; };
 		FF2868DDA592CE89CF27017D99381054 /* UNUMTextEditorToolBarViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = UNUMTextEditorToolBarViewController.xib; path = UNUMTextEditor/Classes/UNUMTextEditorToolBarViewController.xib; sourceTree = "<group>"; };
@@ -193,13 +193,13 @@
 				1C6B2676FD1C15B75125A89C7D11837A /* EditTextSliderToolBar.xib */,
 				6A8E130BC0766C79F0F4E7D817B0C65E /* Extensions.swift */,
 				2B7D0F7A52C80BD0AFF137927A9B4E31 /* HorizontalPickerView.swift */,
-				0EA0EFCC487D5093F428510A324FDFCA /* NSAttributeStringStruct.swift */,
 				ED170F2DAE121B5B7791C7FBF1CCC6D3 /* UNUMTextEditorToolBarViewController.swift */,
 				FF2868DDA592CE89CF27017D99381054 /* UNUMTextEditorToolBarViewController.xib */,
 				21B50EC373490405FF18FD5D137EBB3F /* UNUMTextEditorViewModel.swift */,
 				81F1D942C8ED4B2BE6D467E8C36113A0 /* Pod */,
 				BA10D25E579D0EA60D5CA4B20F0A4809 /* Resources */,
 				696B6AE879AA41D99B79EDF24ED31A32 /* Support Files */,
+				F1BEB4FB21938C3A00126B53 /* NSAttributedString+Extension.swift */,
 			);
 			name = UNUMTextEditor;
 			path = ../..;
@@ -505,10 +505,10 @@
 				82AB9ED378042CE964B9E3791B4F55D3 /* EditFontToolBar.swift in Sources */,
 				07BCF076537C4475445449078F3BCF5C /* EditFontToolBar.xib in Sources */,
 				F6C279AD06A4FEB6E1993D8D9623D031 /* EditTextSliderToolBar.swift in Sources */,
+				F1BEB4FC21938C3A00126B53 /* NSAttributedString+Extension.swift in Sources */,
 				AED65EBE2C8DA876990E8AE240C5B61C /* EditTextSliderToolBar.xib in Sources */,
 				4B94A6DCEAFB5FEB6AD334F601F93BF2 /* Extensions.swift in Sources */,
 				6F4377ED8B0007845F23D5F9B9710A6C /* HorizontalPickerView.swift in Sources */,
-				04BBCC82927D09CDE72147A80FDB45FC /* NSAttributeStringStruct.swift in Sources */,
 				9FC6E9881F779E20E3911B52A049CDC6 /* UNUMTextEditor-dummy.m in Sources */,
 				9201465C8EFD75E28258324A0A1CACB9 /* UNUMTextEditorToolBarViewController.swift in Sources */,
 				59BBEA4B5C125C9BF6B5FF5EDBFC1057 /* UNUMTextEditorToolBarViewController.xib in Sources */,

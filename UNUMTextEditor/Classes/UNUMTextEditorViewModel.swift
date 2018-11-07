@@ -9,12 +9,12 @@ import Foundation
 
 class UNUMTextEditorViewModel {
 
-    var attributeStringData: UNUMAttributeStringStruct
+    var attributedString: NSMutableAttributedString
     var toolType: UNUMTextEditorToolType?
 
 
-    init(attributeStringData: UNUMAttributeStringStruct) {
-        self.attributeStringData = attributeStringData
+    init(attributedString: NSMutableAttributedString) {
+        self.attributedString = attributedString
     }
 
     func getToolBarHeight(toolbarType: UNUMTextEditorToolType) -> CGFloat {
